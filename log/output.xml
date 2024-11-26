@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.1.1 (Python 3.10.1 on win32)" generated="2024-11-26T13:59:30.633454" rpa="false" schemaversion="5">
+<suite id="s1" name="Inputvalidation" source="C:\python\Robot\Automation\inputvalidation.robot">
+<test id="s1-t1" name="Verify All Navbar Links" line="8">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-11-26T13:59:30.849265" level="INFO">Opening browser 'chrome' to base url 'https://2nhaber.com/'.</msg>
+<arg>${URL}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-11-26T13:59:30.849265" elapsed="3.296307"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2024-11-26T13:59:34.145572" elapsed="0.023121"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>xpath=//*[@id="cmsmasters-scroll-top"]/div/div/div/section/div/div[2]/div/div/div/nav</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2024-11-26T13:59:34.170205" elapsed="0.025576"/>
+</kw>
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2024-11-26T13:59:34.217206" level="INFO">${navbar_links} = [&lt;selenium.webdriver.remote.webelement.WebElement (session="ad8c65ab0431d5056d116227817851d4", element="f.9F63107DD50F0AB8EBB15FA732A22AF0.d.5B5F8A7EA5951D06FE35AA1851907764.e.36")&gt;, &lt;selenium.webdriv...</msg>
+<var>${navbar_links}</var>
+<arg>xpath=//*[@id="cmsmasters-scroll-top"]/div/div/div/section/div/div[2]/div/div/div/nav//ul/li/a</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2024-11-26T13:59:34.195781" elapsed="0.022451"/>
+</kw>
+<kw name="Get Length" owner="BuiltIn">
+<msg time="2024-11-26T13:59:34.218232" level="INFO">Length is 25.</msg>
+<msg time="2024-11-26T13:59:34.218232" level="INFO">${link_count} = 25</msg>
+<var>${link_count}</var>
+<arg>${navbar_links}</arg>
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<status status="PASS" start="2024-11-26T13:59:34.218232" elapsed="0.000000"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Found ${link_count} navbar links to test.</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-11-26T13:59:34.218232" elapsed="0.000000"/>
+</kw>
+<for flavor="IN RANGE">
+<iter>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Testing Navbar Link ${index + 1} of ${link_count}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-11-26T13:59:34.219872" elapsed="0.000871"/>
+</kw>
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2024-11-26T13:59:34.230648" level="INFO">${navbar_links} = [&lt;selenium.webdriver.remote.webelement.WebElement (session="ad8c65ab0431d5056d116227817851d4", element="f.9F63107DD50F0AB8EBB15FA732A22AF0.d.5B5F8A7EA5951D06FE35AA1851907764.e.36")&gt;, &lt;selenium.webdriv...</msg>
+<var>${navbar_links}</var>
+<arg>xpath=//*[@id="cmsmasters-scroll-top"]/div/div/div/section/div/div[2]/div/div/div/nav//ul/li/a</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2024-11-26T13:59:34.221442" elapsed="0.010743"/>
+</kw>
+<kw name="Get WebElement" owner="SeleniumLibrary">
+<msg time="2024-11-26T13:59:34.232185" level="INFO">${current_link} = &lt;selenium.webdriver.remote.webelement.WebElement (session="ad8c65ab0431d5056d116227817851d4", element="f.9F63107DD50F0AB8EBB15FA732A22AF0.d.5B5F8A7EA5951D06FE35AA1851907764.e.36")&gt;</msg>
+<var>${current_link}</var>
+<arg>${navbar_links}[${index}]</arg>
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<status status="PASS" start="2024-11-26T13:59:34.232185" elapsed="0.000000"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-11-26T13:59:34.243925" level="INFO">${link_text} = NEDEN</msg>
+<var>${link_text}</var>
+<arg>${current_link}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-26T13:59:34.232185" elapsed="0.011740"/>
+</kw>
+<kw name="Get Element Attribute" owner="SeleniumLibrary">
+<msg time="2024-11-26T13:59:34.247772" level="INFO">${href} = https://2nhaber.com/neden/</msg>
+<var>${href}</var>
+<arg>${current_link}</arg>
+<arg>href</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<status status="PASS" start="2024-11-26T13:59:34.244863" elapsed="0.002909"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Clicking on link: ${link_text} (${href})</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-11-26T13:59:34.247772" elapsed="0.000000"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-11-26T13:59:34.252810" level="INFO">Clicking element '&lt;selenium.webdriver.remote.webelement.WebElement (session="ad8c65ab0431d5056d116227817851d4", element="f.9F63107DD50F0AB8EBB15FA732A22AF0.d.5B5F8A7EA5951D06FE35AA1851907764.e.36")&gt;'.</msg>
+<arg>${current_link}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-26T13:59:34.247772" elapsed="1.446198"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>xpath=//body</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2024-11-26T13:59:35.693970" elapsed="0.010074"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Successfully navigated to: ${link_text}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-11-26T13:59:35.704044" elapsed="0.000000"/>
+</kw>
+<kw name="Go Back" owner="SeleniumLibrary">
+<doc>Simulates the user clicking the back button on their browser.</doc>
+<status status="PASS" start="2024-11-26T13:59:35.704044" elapsed="0.106196"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>xpath=//*[@id="cmsmasters-scroll-top"]/div/div/div/section/div/div[2]/div/div/div/nav</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2024-11-26T13:59:35.810240" elapsed="0.116050"/>
+</kw>
+<var name="${index}">0</var>
+<status status="PASS" start="2024-11-26T13:59:34.218232" elapsed="1.708058"/>
+</iter>
+<iter>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Testing Navbar Link ${index + 1} of ${link_count}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-11-26T13:59:35.927289" elapsed="0.000000"/>
+</kw>
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2024-11-26T13:59:35.930628" level="INFO">${navbar_links} = [&lt;selenium.webdriver.remote.webelement.WebElement (session="ad8c65ab0431d5056d116227817851d4", element="f.9F63107DD50F0AB8EBB15FA732A22AF0.d.5B5F8A7EA5951D06FE35AA1851907764.e.36")&gt;, &lt;selenium.webdriv...</msg>
+<var>${navbar_links}</var>
+<arg>xpath=//*[@id="cmsmasters-scroll-top"]/div/div/div/section/div/div[2]/div/div/div/nav//ul/li/a</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2024-11-26T13:59:35.928124" elapsed="0.002504"/>
+</kw>
+<kw name="Get WebElement" owner="SeleniumLibrary">
+<msg time="2024-11-26T13:59:35.930628" level="INFO">${current_link} = &lt;selenium.webdriver.remote.webelement.WebElement (session="ad8c65ab0431d5056d116227817851d4", element="f.9F63107DD50F0AB8EBB15FA732A22AF0.d.5B5F8A7EA5951D06FE35AA1851907764.e.55")&gt;</msg>
+<var>${current_link}</var>
+<arg>${navbar_links}[${index}]</arg>
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<status status="PASS" start="2024-11-26T13:59:35.930628" elapsed="0.000000"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-11-26T13:59:35.940666" level="INFO">${link_text} = </msg>
+<var>${link_text}</var>
+<arg>${current_link}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-11-26T13:59:35.936640" elapsed="0.004026"/>
+</kw>
+<kw name="Get Element Attribute" owner="SeleniumLibrary">
+<msg time="2024-11-26T13:59:35.943187" level="INFO">${href} = https://2nhaber.com/astronomi-2/</msg>
+<var>${href}</var>
+<arg>${current_link}</arg>
+<arg>href</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<status status="PASS" start="2024-11-26T13:59:35.940666" elapsed="0.002521"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Clicking on link: ${link_text} (${href})</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-11-26T13:59:35.943187" elapsed="0.000000"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-11-26T13:59:35.943187" level="INFO">Clicking element '&lt;selenium.webdriver.remote.webelement.WebElement (session="ad8c65ab0431d5056d116227817851d4", element="f.9F63107DD50F0AB8EBB15FA732A22AF0.d.5B5F8A7EA5951D06FE35AA1851907764.e.55")&gt;'.</msg>
+<msg time="2024-11-26T13:59:36.514099" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-243.png"&gt;&lt;img src="selenium-screenshot-243.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2024-11-26T13:59:36.514099" level="FAIL">ElementNotInteractableException: Message: element not interactable
+  (Session info: chrome=131.0.6778.86)
+Stacktrace:
+	GetHandleVerifier [0x00007FF7BD256CB5+28821]
+	(No symbol) [0x00007FF7BD1C3840]
+	(No symbol) [0x00007FF7BD0655B9]
+	(No symbol) [0x00007FF7BD0BA674]
+	(No symbol) [0x00007FF7BD0ACBA0]
+	(No symbol) [0x00007FF7BD0DF2FA]
+	(No symbol) [0x00007FF7BD0AC3F6]
+	(No symbol) [0x00007FF7BD0DF510]
+	(No symbol) [0x00007FF7BD0FF412]
+	(No symbol) [0x00007FF7BD0DF0A3]
+	(No symbol) [0x00007FF7BD0AA778]
+	(No symbol) [0x00007FF7BD0AB8E1]
+	GetHandleVerifier [0x00007FF7BD58FCAD+3408013]
+	GetHandleVerifier [0x00007FF7BD5A741F+3504127]
+	GetHandleVerifier [0x00007FF7BD59B5FD+3455453]
+	GetHandleVerifier [0x00007FF7BD31BDBB+835995]
+	(No symbol) [0x00007FF7BD1CEB5F]
+	(No symbol) [0x00007FF7BD1CA814]
+	(No symbol) [0x00007FF7BD1CA9AD]
+	(No symbol) [0x00007FF7BD1BA199]
+	BaseThreadInitThunk [0x00007FFB51B9259D+29]
+	RtlUserThreadStart [0x00007FFB534EAF38+40]
+</msg>
+<arg>${current_link}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="FAIL" start="2024-11-26T13:59:35.943187" elapsed="0.577249">ElementNotInteractableException: Message: element not interactable
+  (Session info: chrome=131.0.6778.86)
+Stacktrace:
+	GetHandleVerifier [0x00007FF7BD256CB5+28821]
+	(No symbol) [0x00007FF7BD1C3840]
+	(No symbol) [0x00007FF7BD0655B9]
+	(No symbol) [0x00007FF7BD0BA674]
+	(No symbol) [0x00007FF7BD0ACBA0]
+	(No symbol) [0x00007FF7BD0DF2FA]
+	(No symbol) [0x00007FF7BD0AC3F6]
+	(No symbol) [0x00007FF7BD0DF510]
+	(No symbol) [0x00007FF7BD0FF412]
+	(No symbol) [0x00007FF7BD0DF0A3]
+	(No symbol) [0x00007FF7BD0AA778]
+	(No symbol) [0x00007FF7BD0AB8E1]
+	GetHandleVerifier [0x00007FF7BD58FCAD+3408013]
+	GetHandleVerifier [0x00007FF7BD5A741F+3504127]
+	GetHandleVerifier [0x00007FF7BD59B5FD+3455453]
+	GetHandleVerifier [0x00007FF7BD31BDBB+835995]
+	(No symbol) [0x00007FF7BD1CEB5F]
+	(No symbol) [0x00007FF7BD1CA814]
+	(No symbol) [0x00007FF7BD1CA9AD]
+	(No symbol) [0x00007FF7BD1BA199]
+	BaseThreadInitThunk [0x00007FFB51B9259D+29]
+	RtlUserThreadStart [0x00007FFB534EAF38+40]
+</status>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>xpath=//body</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="NOT RUN" start="2024-11-26T13:59:36.520436" elapsed="0.000000"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Successfully navigated to: ${link_text}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" start="2024-11-26T13:59:36.520436" elapsed="0.000000"/>
+</kw>
+<kw name="Go Back" owner="SeleniumLibrary">
+<doc>Simulates the user clicking the back button on their browser.</doc>
+<status status="NOT RUN" start="2024-11-26T13:59:36.520436" elapsed="0.000000"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>xpath=//*[@id="cmsmasters-scroll-top"]/div/div/div/section/div/div[2]/div/div/div/nav</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="NOT RUN" start="2024-11-26T13:59:36.520436" elapsed="0.000000"/>
+</kw>
+<var name="${index}">1</var>
+<status status="FAIL" start="2024-11-26T13:59:35.926290" elapsed="0.594146">ElementNotInteractableException: Message: element not interactable
+  (Session info: chrome=131.0.6778.86)
+Stacktrace:
+	GetHandleVerifier [0x00007FF7BD256CB5+28821]
+	(No symbol) [0x00007FF7BD1C3840]
+	(No symbol) [0x00007FF7BD0655B9]
+	(No symbol) [0x00007FF7BD0BA674]
+	(No symbol) [0x00007FF7BD0ACBA0]
+	(No symbol) [0x00007FF7BD0DF2FA]
+	(No symbol) [0x00007FF7BD0AC3F6]
+	(No symbol) [0x00007FF7BD0DF510]
+	(No symbol) [0x00007FF7BD0FF412]
+	(No symbol) [0x00007FF7BD0DF0A3]
+	(No symbol) [0x00007FF7BD0AA778]
+	(No symbol) [0x00007FF7BD0AB8E1]
+	GetHandleVerifier [0x00007FF7BD58FCAD+3408013]
+	GetHandleVerifier [0x00007FF7BD5A741F+3504127]
+	GetHandleVerifier [0x00007FF7BD59B5FD+3455453]
+	GetHandleVerifier [0x00007FF7BD31BDBB+835995]
+	(No symbol) [0x00007FF7BD1CEB5F]
+	(No symbol) [0x00007FF7BD1CA814]
+	(No symbol) [0x00007FF7BD1CA9AD]
+	(No symbol) [0x00007FF7BD1BA199]
+	BaseThreadInitThunk [0x00007FFB51B9259D+29]
+	RtlUserThreadStart [0x00007FFB534EAF38+40]
+</status>
+</iter>
+<var>${index}</var>
+<value>0</value>
+<value>${link_count}</value>
+<status status="FAIL" start="2024-11-26T13:59:34.218232" elapsed="2.302204">ElementNotInteractableException: Message: element not interactable
+  (Session info: chrome=131.0.6778.86)
+Stacktrace:
+	GetHandleVerifier [0x00007FF7BD256CB5+28821]
+	(No symbol) [0x00007FF7BD1C3840]
+	(No symbol) [0x00007FF7BD0655B9]
+	(No symbol) [0x00007FF7BD0BA674]
+	(No symbol) [0x00007FF7BD0ACBA0]
+	(No symbol) [0x00007FF7BD0DF2FA]
+	(No symbol) [0x00007FF7BD0AC3F6]
+	(No symbol) [0x00007FF7BD0DF510]
+	(No symbol) [0x00007FF7BD0FF412]
+	(No symbol) [0x00007FF7BD0DF0A3]
+	(No symbol) [0x00007FF7BD0AA778]
+	(No symbol) [0x00007FF7BD0AB8E1]
+	GetHandleVerifier [0x00007FF7BD58FCAD+3408013]
+	GetHandleVerifier [0x00007FF7BD5A741F+3504127]
+	GetHandleVerifier [0x00007FF7BD59B5FD+3455453]
+	GetHandleVerifier [0x00007FF7BD31BDBB+835995]
+	(No symbol) [0x00007FF7BD1CEB5F]
+	(No symbol) [0x00007FF7BD1CA814]
+	(No symbol) [0x00007FF7BD1CA9AD]
+	(No symbol) [0x00007FF7BD1BA199]
+	BaseThreadInitThunk [0x00007FFB51B9259D+29]
+	RtlUserThreadStart [0x00007FFB534EAF38+40]
+</status>
+</for>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="NOT RUN" start="2024-11-26T13:59:36.520436" elapsed="0.000000"/>
+</kw>
+<status status="FAIL" start="2024-11-26T13:59:30.849265" elapsed="5.671171">ElementNotInteractableException: Message: element not interactable
+  (Session info: chrome=131.0.6778.86)
+Stacktrace:
+	GetHandleVerifier [0x00007FF7BD256CB5+28821]
+	(No symbol) [0x00007FF7BD1C3840]
+	(No symbol) [0x00007FF7BD0655B9]
+	(No symbol) [0x00007FF7BD0BA674]
+	(No symbol) [0x00007FF7BD0ACBA0]
+	(No symbol) [0x00007FF7BD0DF2FA]
+	(No symbol) [0x00007FF7BD0AC3F6]
+	(No symbol) [0x00007FF7BD0DF510]
+	(No symbol) [0x00007FF7BD0FF412]
+	(No symbol) [0x00007FF7BD0DF0A3]
+	(No symbol) [0x00007FF7BD0AA778]
+	(No symbol) [0x00007FF7BD0AB8E1]
+	GetHandleVerifier [0x00007FF7BD58FCAD+3408013]
+	GetHandleVerifier [0x00007FF7BD5A741F+3504127]
+	GetHandleVerifier [0x00007FF7BD59B5FD+3455453]
+	GetHandleVerifier [0x00007FF7BD31BDBB+835995]
+	(No symbol) [0x00007FF7BD1CEB5F]
+	(No symbol) [0x00007FF7BD1CA814]
+	(No symbol) [0x00007FF7BD1CA9AD]
+	(No symbol) [0x00007FF7BD1BA199]
+	BaseThreadInitThunk [0x00007FFB51B9259D+29]
+	RtlUserThreadStart [0x00007FFB534EAF38+40]
+</status>
+</test>
+<status status="FAIL" start="2024-11-26T13:59:30.635467" elapsed="5.888486"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Inputvalidation">Inputvalidation</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
