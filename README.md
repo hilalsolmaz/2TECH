@@ -40,3 +40,6 @@ tutulabilir.
 (Bu ise  = apply2tech.robot)
 
 
+Senaryolarım , MasterTestRail.pdf belgesinde yer almaktadır.
+Test Rail belgelerimde ise koşulan testlere ait raporlar yer almaktadır.
+
